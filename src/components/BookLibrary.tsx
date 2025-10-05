@@ -1,5 +1,6 @@
 import { Book } from '../types';
 import { BookOpen } from 'lucide-react';
+import { resolveAssetUrl } from '../utils/assetUrl';
 
 interface BookLibraryProps {
   books: Book[];
@@ -24,7 +25,7 @@ export default function BookLibrary({ books, onSelectBook }: BookLibraryProps) {
             >
               <div className="aspect-[3/4] bg-gray-700 relative overflow-hidden">
                 <img
-                  src={`/${book.thumbnail}`}
+                  src={resolveAssetUrl(book.thumbnail)}
                   alt={book.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   onError={(e) => {

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Hotspot } from '../types';
 import { Volume2, Video, ExternalLink, X, Play, Pause } from 'lucide-react';
+import { resolveAssetUrl } from '../utils/assetUrl';
 
 interface HotspotOverlayProps {
   hotspots: Hotspot[];
@@ -130,7 +131,7 @@ export default function HotspotOverlay({ hotspots, bookFolder }: HotspotOverlayP
                 <div className="space-y-4">
                   <audio
                     ref={audioRef}
-                    src={`/${bookFolder}/${activeHotspot.src}`}
+                    src={resolveAssetUrl(`${bookFolder}/${activeHotspot.src}`)}
                     onEnded={() => setIsPlaying(false)}
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
@@ -162,7 +163,7 @@ export default function HotspotOverlay({ hotspots, bookFolder }: HotspotOverlayP
                 <div className="space-y-4">
                   <video
                     ref={videoRef}
-                    src={`/${bookFolder}/${activeHotspot.src}`}
+                    src={resolveAssetUrl(`${bookFolder}/${activeHotspot.src}`)}
                     onEnded={() => setIsPlaying(false)}
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
