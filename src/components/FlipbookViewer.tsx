@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Book, BookData } from '../types';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Maximize2, Search, Download, Printer, Home, Grid3x3, SkipBack, SkipForward } from 'lucide-react';
 import HotspotOverlay from './HotspotOverlay';
+import { resolveAssetUrl } from '../utils/assetUrl';
 
 interface FlipbookViewerProps {
   book: Book;
@@ -22,7 +23,7 @@ export default function FlipbookViewer({ book, onClose }: FlipbookViewerProps) {
   const isDragging = useRef<boolean>(false);
 
   useEffect(() => {
-    fetch(`/${book.folder}/pages.json`)
+    fetch(new URL(`${book.folder}/pages.json`, import.meta.env.BASE_URL))
       .then(res => res.json())
       .then(data => {
         setBookData(data);
@@ -31,7 +32,7 @@ export default function FlipbookViewer({ book, onClose }: FlipbookViewerProps) {
           img.onload = () => {
             setImageDimensions({ width: img.width, height: img.height });
           };
-          img.src = `/${book.folder}/${data.pages[0].img}`;
+          img.src = resolveAssetUrl(`${book.folder}/${data.pages[0].img}`);
         }
       })
       .catch(err => console.error('Error loading book data:', err));
@@ -242,7 +243,7 @@ export default function FlipbookViewer({ book, onClose }: FlipbookViewerProps) {
                     }`}
                   >
                     <img
-                      src={`/${book.folder}/${page.img}`}
+                      src={resolveAssetUrl(`${book.folder}/${page.img}`)}
                       alt={`Page ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
@@ -284,7 +285,7 @@ export default function FlipbookViewer({ book, onClose }: FlipbookViewerProps) {
                     }}
                   >
                     <img
-                      src={`/${book.folder}/${leftPage.img}`}
+                      src={resolveAssetUrl(`${book.folder}/${leftPage.img}`)}
                       alt={`Page ${leftPageIndex + 1}`}
                       className="w-full h-full object-cover pointer-events-none"
                       onError={(e) => {
@@ -310,7 +311,7 @@ export default function FlipbookViewer({ book, onClose }: FlipbookViewerProps) {
                   >
                     <div className="w-full h-full" style={{ backfaceVisibility: 'hidden' }}>
                       <img
-                        src={`/${book.folder}/${rightPage.img}`}
+                        src={resolveAssetUrl(`${book.folder}/${rightPage.img}`)}
                         alt={`Page ${rightPageIndex + 1}`}
                         className="w-full h-full object-cover pointer-events-none"
                         onError={(e) => {

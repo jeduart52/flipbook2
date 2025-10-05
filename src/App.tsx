@@ -8,7 +8,7 @@ function App() {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
   useEffect(() => {
-    fetch('/books.json')
+    fetch(new URL('books.json', import.meta.env.BASE_URL))
       .then(res => res.json())
       .then(data => setBooks(data.books))
       .catch(err => console.error('Error loading books:', err));
