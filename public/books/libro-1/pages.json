@@ -6,7 +6,7 @@
         {
           "type": "audio",
           "label": "ALH Starter SB Credits",
-          "src": "audio/archivo.txt",
+          "src": "audio/ALH_Starter_SB_Credits.mp3",
           "x": 0.13565708902496468,
           "y": 0.3483967594798829,
           "w": 0.001,
@@ -21,7 +21,7 @@
         {
           "type": "audio",
           "label": "ALH Starter SB Track 0.1",
-          "src": "audio/archivo.txt",
+          "src": "audio/ALH_Starter_SB_Track_0.1.mp3",
           "x": 0.8789124043724723,
           "y": 0.08523384845802982,
           "w": 0.001,
@@ -36,7 +36,7 @@
         {
           "type": "audio",
           "label": "ALH Starter SB Track 0.2",
-          "src": "audio/archivo.txt",
+          "src": "audio/ALH_Starter_SB_Track_0.2.mp3",
           "x": 0.13357805317783877,
           "y": 0.5183198311661787,
           "w": 0.001,
@@ -51,7 +51,7 @@
         {
           "type": "audio",
           "label": "ALH Starter SB Track 0.3",
-          "src": "audio/archivo.txt",
+          "src": "audio/ALH_Starter_SB_Track_0.3.mp3",
           "x": 0.7177871262202153,
           "y": 0.42507999183062156,
           "w": 0.001,
@@ -66,7 +66,7 @@
         {
           "type": "audio",
           "label": "ALH Starter SB Track 0.3",
-          "src": "audio/archivo.txt",
+          "src": "audio/ALH_Starter_SB_Track_0.3.mp3",
           "x": 0.26143875777608133,
           "y": 0.609816869766492,
           "w": 0.5010476391573407,
