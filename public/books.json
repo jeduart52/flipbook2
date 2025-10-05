@@ -1,0 +1,10 @@
+{
+  "books": [
+    {
+      "id": "libro-1",
+      "title": "English Course Book",
+      "folder": "books/libro-1",
+      "thumbnail": "books/libro-1/pages/10.jpg"
+    }
+  ]
+}
