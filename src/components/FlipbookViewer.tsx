@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Book, BookData } from '../types';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Maximize2, Search, Download, Printer, Home, Grid3x3, SkipBack, SkipForward } from 'lucide-react';
 import HotspotOverlay from './HotspotOverlay';
-import { resolveAssetUrl } from '../utils/assetUrl';
+import { resolveAssetUrl, resolveBaseUrl } from '../utils/assetUrl';
 
 interface FlipbookViewerProps {
   book: Book;
@@ -23,7 +23,7 @@ export default function FlipbookViewer({ book, onClose }: FlipbookViewerProps) {
   const isDragging = useRef<boolean>(false);
 
   useEffect(() => {
-    fetch(new URL(`${book.folder}/pages.json`, import.meta.env.BASE_URL))
+    fetch(new URL(`${book.folder}/pages.json`, resolveBaseUrl()))
       .then(res => res.json())
       .then(data => {
         setBookData(data);

@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import BookLibrary from './components/BookLibrary';
 import FlipbookViewer from './components/FlipbookViewer';
 import { Book } from './types';
+import { resolveBaseUrl } from './utils/assetUrl';
 
 function App() {
   const [books, setBooks] = useState<Book[]>([]);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
   useEffect(() => {
-    fetch(new URL('books.json', import.meta.env.BASE_URL))
+    fetch(new URL('books.json', resolveBaseUrl()))
       .then(res => res.json())
       .then(data => setBooks(data.books))
       .catch(err => console.error('Error loading books:', err));
